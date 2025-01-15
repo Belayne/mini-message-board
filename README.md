@@ -1,2 +1,2 @@
-##Mini Message Board##
-Made with #Express
+# Mini Message Board #
+Made with **Express**
