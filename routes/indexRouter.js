@@ -1,7 +1,7 @@
 import { Router } from "express";
-import msgController from "../controllers/messageController.js";
+import indexController from "../controllers/indexController.js";
 const indexRouter = Router();
 
-indexRouter.get("", msgController.get);
+indexRouter.get("", indexController.get);
 
 export default indexRouter;
