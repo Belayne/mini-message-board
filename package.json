@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch --env-file=.env app.js"
+    "start": "node --env-file=.env app.js",
+    "start-dev": "node --watch --env-file=.env app.js"
   },
   "author": "Naol Derara",
   "license": "ISC",
