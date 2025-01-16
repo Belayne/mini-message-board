@@ -3,7 +3,7 @@ import path from "path";
 import indexRouter from "./routes/indexRouter.js";
 import newMessageRouter from "./routes/newMessageRouter.js";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const __diraname = import.meta.dirname;
 const assetsPath = path.join(__diraname, "public");
 const app = express();
