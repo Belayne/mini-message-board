@@ -1,8 +1,9 @@
 
 class Message {
     constructor(text, user = "Guest") {
+        const formattedUser = user.trim();
         this.text = text;
-        this.user = user;
+        this.user = formattedUser === ""? "Guest": formattedUser;
         this.date = new Date();
     }
 }

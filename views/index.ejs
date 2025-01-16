@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Mini message board</title>
 </head>
 <body>
     <header>
         <h1>Mini message board</h1>
     </header>
-    <ul>
-        <% messages.forEach(message => {%>
-            <li>
-                <p><%=message.text%></p>
-                <p><%=message.user%></p>
-                <p><%=message.date%></p>
-            </li>
-        <%}) %>
-    </ul>
-    <a href="/newMessage">Add message</a>
+    <main>
+        <ul>
+            <% messages.forEach(message => {%>
+                <li>
+                    <p><%=message.text%></p>
+                    <div class="postInfo">
+                        <p>Sent by <b><%=message.user%></b></p>
+                        <p class="messageDate"><%=message.date.toLocaleString()%></p>
+                    </div>
+                </li>
+            <%}) %>
+        </ul>
+        <a href="/newMessage">Add message</a>
+    </main>
 </body>
 </html>

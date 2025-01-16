@@ -5,8 +5,10 @@ import newMessageRouter from "./routes/newMessageRouter.js";
 
 const PORT = process.env.PORT;
 const __diraname = import.meta.dirname;
-
+const assetsPath = path.join(__diraname, "public");
 const app = express();
+
+app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({extended: true}));
 app.set("views", path.resolve(__diraname, "views"));
