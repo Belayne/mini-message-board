@@ -6,23 +6,21 @@
     <link rel="stylesheet" href="styles.css">
     <title>Mini message board</title>
 </head>
-<body>
-    <header>
-        <h1>Mini message board</h1>
+<body class="flex flex-col w-screen">
+    <header class="m-auto text-center my-5">
+        <h1 class="font-bold text-2xl">Mini message board</h1>
     </header>
-    <main>
-        <ul>
+    <main class="m-auto px-5 md:w-1/2 w-screen">
+        <ul class="flex flex-col gap-1">
             <% messages.forEach(message => {%>
-                <li>
-                    <p><%=message.message%></p>
-                    <div class="postInfo">
-                        <p>Sent by <b><%=message.username%></b></p>
-                        <p class="messageDate"><%=new Date(Number(message.timestamp)).toLocaleString()%></p>
-                    </div>
+                <li class="">
+                    <p class="text-sm"><%=message.username%></p>
+                    <p class="border border-gray-100 bg-gray-100 p-2 rounded-sm my-1 break-words"><%=message.message%></p>
+                    <p class="text-sm text-gray-400 float-end"><%=new Date(Number(message.timestamp)).toLocaleString()%></p>
                 </li>
             <%}) %>
         </ul>
-        <a href="/newMessage">Add message</a>
+        <a class="border p-2 block w-fit rounded-md" href="/newMessage">Add message</a>
     </main>
 </body>
 </html>
