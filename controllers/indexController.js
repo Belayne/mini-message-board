@@ -1,7 +1,7 @@
-import {messageList} from "../messages.js";
+import db from "../db/queries.js"
 
-function getMessages(req, res, next) {
-    const messages = messageList.messages;
+async function getMessages(req, res, next) {
+    const messages = await db.getAllMessages();
     res.render("index", {messages})
 }
 

@@ -1,14 +1,13 @@
-import { Message, messageList } from "../messages.js";
+import db from "../db/queries.js";
 
 function renderNewMsgPage(req, res) {
     res.render("newMessageForm");
 }
 
-function addNewMessage(req, res, next) {
-    const {username, message: text} = req.body;
-    const newMessage = new Message(text, username);
-    messageList.addMessage(newMessage);
-
+async function addNewMessage(req, res, next) {
+    const {username, message} = req.body;
+    const timestamp = new Date().valueOf();
+    await db.insertNewMessage(message, timestamp, username);
     next();
 }
 
