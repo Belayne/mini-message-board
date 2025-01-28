@@ -4,7 +4,7 @@ class Message {
         const formattedUser = user.trim();
         this.text = text;
         this.user = formattedUser === ""? "Guest": formattedUser;
-        this.date = new Date();
+        this.date = new Date().valueOf(); //Date timestamp represented as time in milliseconds since epoch
     }
 }
 
