@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Mini message board</title>
 </head>
-<body class="flex flex-col w-screen">
+<body class="flex flex-col w-screen font-open overflow-x-hidden">
     <header class="m-auto text-center my-5">
         <h1 class="font-bold text-2xl">Mini message board</h1>
     </header>
-    <main class="m-auto px-5 md:w-1/2 w-screen">
-        <ul class="flex flex-col gap-1">
+    <main class="m-auto p-5 md:w-1/2 w-screen">
+        <ul class="flex flex-col gap-1 pb-10">
             <% messages.forEach(message => {%>
                 <li class="">
-                    <p class="text-sm"><%=message.username%></p>
-                    <p class="border border-gray-100 bg-gray-100 p-2 rounded-sm my-1 break-words"><%=message.message%></p>
-                    <p class="text-sm text-gray-400 float-end"><%=new Date(Number(message.timestamp)).toLocaleString()%></p>
+                    <p class="text-xs font-semibold text-gray-500"><%=message.username%></p>
+                    <p class="border border-gray-100 bg-gray-100 p-2 rounded-sm my-1 break-words text-sm"><%=message.message%></p>
+                    <p class="text-xs text-gray-400 float-end"><%=new Date(Number(message.timestamp)).toLocaleString()%></p>
                 </li>
             <%}) %>
         </ul>
-        <a class="border p-2 block w-fit rounded-md" href="/newMessage">Add message</a>
+        <a class="p-2 w-fit rounded-md bg-black text-white fixed right-5 bottom-2 drop-shadow-sm md:sticky md:float-end" href="/newMessage">Add message</a>
     </main>
 </body>
 </html>
