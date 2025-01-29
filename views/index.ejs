@@ -15,7 +15,7 @@
     </header>
     <main class="m-auto p-5 md:w-1/2 w-screen">
         <ul class="flex flex-col gap-1 pb-10">
-            <% messages.forEach(message => {%>
+            <% messages.reverse().forEach(message => {%>
                 <li class="">
                     <p class="text-xs font-semibold text-gray-500"><%=message.username%></p>
                     <p class="border border-gray-100 bg-gray-100 p-2 rounded-sm my-1 break-words text-sm"><%=message.message%></p>
@@ -23,7 +23,8 @@
                 </li>
             <%}) %>
         </ul>
-        <a class="p-2 w-fit rounded-md bg-black text-white fixed right-5 bottom-2 drop-shadow-sm md:sticky md:float-end" href="/newMessage">Add message</a>
+        <a class="p-2 w-fit rounded-md bg-black text-white right-5 bottom-2 drop-shadow-sm sticky float-end" href="/newMessage">Add message</a>
     </main>
+    <%- include('./partials/footer')%>
 </body>
 </html>

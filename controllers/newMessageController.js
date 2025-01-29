@@ -5,7 +5,8 @@ function renderNewMsgPage(req, res) {
 }
 
 async function addNewMessage(req, res, next) {
-    const {username, message} = req.body;
+    let {username, message} = req.body;
+    username = username? username: "Guest";
     const timestamp = new Date().valueOf();
     await db.insertNewMessage(message, timestamp, username);
     next();
