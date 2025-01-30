@@ -4,3 +4,7 @@
 @theme {
     --font-open: 'Open Sans';
 }
+
+* {
+    scrollbar-width: thin;
+}
