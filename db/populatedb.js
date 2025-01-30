@@ -1,6 +1,20 @@
 import pg from "pg";
 const { Client } = pg;
 
+function getDatabaseURL() {
+
+    if(process.env.NODE_ENV === "production") {
+        const dbURL = process.env.databaseURL;
+        return dbURL
+
+    }
+    else {
+        const {host, user, database, password, dbPORT} = process.env;
+        const dbURL = `postgresql://${user}:${password}@${host}:${dbPORT}/${database}`;
+        return dbURL
+    }
+}
+
 const SQLquery = `
 INSERT INTO messages (message, username, timestamp)
 VALUES 
@@ -15,14 +29,10 @@ VALUES
     ('Lost a batch?! Are you kidding me, Jesse?!', 'Walter White', '${new Date().valueOf()}'),
     ('I’ll handle it. Don’t do anything stupid.', 'Mike Ehrmantraut', '${new Date().valueOf()}');
 `
-
-const {user, password, database, dbPORT, host} = process.env;
-
 async function main() {
     console.log("Seeding...");
-    console.log(host);
     const client = new Client({
-        connectionString: `postgresql://${user}:${password}@${host}:${dbPORT}/${database}`,
+        connectionString: getDatabaseURL()
     });
     await client.connect();
     await client.query(SQLquery);

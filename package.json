@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "start-dev": "node --watch --env-file=.env app.js & npx @tailwindcss/cli -i ./input.css -o ./public/styles.css --watch",
-    "populatedb": "node --env-file=.env ./db/populatedb.js"
+    "populatedb": "node ./db/populatedb.js"
   },
   "author": "Naol Derara",
   "license": "ISC",
